@@ -1,0 +1,75 @@
+<section id="home">
+    <div class="flex">
+        <div class="home-section-1">
+            <div class="home-section-1-text">
+                <h1 data-aos="fade-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="800"
+                >{{section.settings.title}}</h1>
+                <div class="p"
+                data-aos="fade-right"
+                data-aos-easing="ease-in"
+                data-aos-duration="1000"
+                >{{section.settings.text}}</div>
+                <a href="{{section.settings.button_link}}"><button class="button-main" data-aos="fade-left"
+                data-aos-easing="ease-in"
+                data-aos-duration="1200"
+                >{{section.settings.button_text}}</button></a>
+            </div>
+        </div>
+        <div class="home-section-2">
+            {% if section.settings.main_image != blank %}
+                <img src="{{ section.settings.main_image | img_url: 'large' }}" alt="{{ section.settings.main_image.alt }}" data-aos="fade-in"
+                data-aos-easing="ease-in"
+                data-aos-duration="1200">
+            {% else %}
+                 {{ 'lifestyle-1' | placeholder_svg_tag }}
+            {% endif %}
+           
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Title",
+            "label": "Title"
+        },
+
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+        },
+        {
+           "type": "textarea",
+           "id": "text",
+           "default": "Short text about your products and your great shop",
+           "label": "Text about the shop"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "default": "Shop the collection",
+            "label" : "Button text"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+    ],
+    "limit": 1,
+    "presets": [
+        {
+            "name": "Hero"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,184 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Freya",
+    "theme_version": "1.0",
+    "theme_author": "Claashy",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes\/os20\/themes-by-shopify\/dawn",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Theme basic setttings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "default": "#222020",
+        "label": "Primary color",
+        "info": "Primary color"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "default": "#CAA893",
+        "label": "Secondary color",
+        "info": "Secondary color"
+      },
+      {
+        "type": "color",
+        "id": "third_color",
+        "default": "#EDE5DC",
+        "label": "Text color",
+        "info": "Color for body text"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo",
+        "info": "Upload a png file of your logo"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings and buttons"
+      },
+      {
+        "type": "font_picker",
+        "id": "header_font_new",
+        "label": "Font",
+        "default": "work_sans_n6"
+      },
+      {
+        "type": "range",
+        "id": "header_base_size",
+        "label": "Heading base size",
+        "default": 36,
+        "min": 20,
+        "max": 72,
+        "step": 1,
+        "unit": "px"
+      },
+      {
+        "type": "header",
+        "content": "Body text"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Font",
+        "default": "work_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "body_base_size",
+        "label": "Base size",
+        "default": 16,
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Footer customization"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_main_menu",
+        "label": "Show main menu block",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "second_title",
+        "label": "Title of secondary menu",
+        "default": "Policies"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_footer_menu",
+        "label": "Show footer menu block",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "social_title",
+        "label": "Title of social media section",
+        "default": "Let's connect"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social_icons",
+        "label": "Show social icons",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "social_icon_1",
+        "label": "Social Icon 1"
+      },
+      {
+        "type": "url",
+        "id": "social_url_1",
+        "label": "Social link 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_icon_2",
+        "label": "Social Icon 2"
+      },
+      {
+        "type": "url",
+        "id": "social_url_2",
+        "label": "Social link 2"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_icon_3",
+        "label": "Social Icon 3"
+      },
+      {
+        "type": "url",
+        "id": "social_url_3",
+        "label": "Social link 3"
+      },
+      {
+        "type": "image_picker",
+        "id": "social_icon_4",
+        "label": "Social Icon 4"
+      },
+      {
+        "type": "url",
+        "id": "social_url_4",
+        "label": "Social link 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_email_subscribe",
+        "label": "Show email subscription form",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "subscribe_form_title",
+        "label": "Subscribe title",
+        "default": "Subscribe for our newsletter"
+      }
+    ]
+  }
+]

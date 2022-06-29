@@ -1,0 +1,64 @@
+
+
+<section class="favorites" >
+
+    <div class="favorites-title">
+        <a href="{{section.settings.featured_collection.url}}"><h1>{{ section.settings.title}}</h1></a> 
+        <a href="{{section.settings.featured_collection.url}}">{{ section.settings.btn_title}}</a>
+    </div>
+
+    <div class="favorites-section-2" data-aos="fade-in" data-aos-easing="ease-in"
+    data-aos-duration="500">
+        <div class="grid favorites-grid">
+            {% for product in section.settings.featured_collection.products limit: section.settings.number_of_products_to_show %}
+               {% render 'product-card', product_product: product %}
+                {% else %}
+                <p>Add products to your collection </p>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+</section>
+
+
+
+{% schema %}
+{
+    "name": "Featured Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "default": "Featured Collection",
+            "label": "Title"
+        },
+        {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Collection",
+            "info": "Choose a collection page to which title and button will lead"
+        },
+        {
+            "type": "range",
+            "id": "number_of_products_to_show",
+            "min": 3,
+            "max": 12,
+            "default": 6,
+            "label": "Number of products to show"
+        },
+          {
+             "type": "text",
+             "id": "btn_title",
+             "label": "Button title",
+             "default": "Shop all"
+          }
+
+    ],
+    "presets": [
+        {
+            "name": "Featured Collection"
+        }
+    ]
+}
+{% endschema %}

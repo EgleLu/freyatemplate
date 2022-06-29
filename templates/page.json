@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "blocks": {
+        "11a38061-5f6d-4c46-b482-522dcaea69a6": {
+          "type": "hero",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LBD_2855.jpg",
+            "text_1": "LET'S GET TO KNOW EACH OTHER",
+            "text_2": "Hi, we're claashy",
+            "main_text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ab maxime commodi in, quo consectetur saepe eligendi autem non repellendus velit voluptatibus, architecto sint laudantium molestiae, ea provident eius laboriosam.<\/p>"
+          }
+        },
+        "8184436b-7944-4d19-adb7-1800fb3630e2": {
+          "type": "content",
+          "settings": {
+            "show_content": true,
+            "content_title": "Title about us"
+          }
+        }
+      },
+      "block_order": [
+        "11a38061-5f6d-4c46-b482-522dcaea69a6",
+        "8184436b-7944-4d19-adb7-1800fb3630e2"
+      ],
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "template"
+  ]
+}

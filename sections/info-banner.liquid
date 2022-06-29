@@ -1,0 +1,57 @@
+
+<style>
+.info-banner{
+    background-image: url("{{ section.settings.banner_image | img_url: 'large'}}");
+}
+</style> 
+<div class="info-banner">
+    <!-- <img src="{{ section.settings.banner_image | img_url: 'large'}}" alt="{{section.settings.banner_image.alt}}"> -->
+    <div class="info-banner-inside" data-aos="fade-in"
+    data-aos-easing="ease-in"
+    data-aos-duration="1200">
+            <h1>{{ section.settings.title }}</h1>
+           <p> {{ section.settings.textarea }}</p>
+           <a href="{{section.settings.button_link}}"> <button class="button-main" 
+            >{{section.settings.btn_text}}</button></a>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Info banner",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Background image of a banner"
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+           "type": "textarea",
+           "id": "textarea",
+           "label": "Text about offer"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button title",
+            "default": "Shop now"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          }
+    
+    ],
+    "presets": [
+        {
+            "name": "Info banner"
+        }
+    ]
+}
+{% endschema %}

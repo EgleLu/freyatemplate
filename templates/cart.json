@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-cart",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "update-button": {
+          "type": "update_button",
+          "settings": {
+          }
+        },
+        "checkout-button": {
+          "type": "checkout_button",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "update-button",
+        "checkout-button"
+      ],
+      "settings": {
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+      }
+    },
+    "featured-products": {
+      "type": "featured-collection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "template",
+    "cart-footer",
+    "featured-products"
+  ]
+}

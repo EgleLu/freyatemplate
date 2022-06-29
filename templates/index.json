@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title": "Lorem ipsum dolor sit amet",
+        "main_image": "shopify:\/\/shop_images\/LBD_2846_96ca56fc-7e45-427a-ac75-b2a457d27e6d.jpg",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "button_text": "Shop the collection",
+        "button_link": "shopify:\/\/collections\/featured-products"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all",
+        "number_of_products_to_show": 3,
+        "btn_title": "Shop the collection"
+      }
+    },
+    "info-banner": {
+      "type": "info-banner",
+      "settings": {
+        "banner_image": "shopify:\/\/shop_images\/LBD_2819.jpg",
+        "title": "Shop 20% off",
+        "textarea": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "btn_text": "Shop now",
+        "button_link": "shopify:\/\/pages\/test"
+      }
+    },
+    "main-collections": {
+      "type": "main-collections",
+      "settings": {
+        "image_1": "shopify:\/\/shop_images\/LBD_2831.jpg",
+        "collection_1": "frontpage",
+        "image_2": "shopify:\/\/shop_images\/LBD_2817.jpg",
+        "collection_2": "featured-products",
+        "image_3": "shopify:\/\/shop_images\/LBD_2833.jpg",
+        "collection_3": "featured-products",
+        "image_4": "shopify:\/\/shop_images\/LBD_2855.jpg",
+        "collection_4": "frontpage"
+      }
+    },
+    "two-column": {
+      "type": "two-col",
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/rsz_2girl.jpg",
+        "title": "Meet behind the scenes",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor, risus a lobortis pellentesque, quam dolor blandit ligula, id pellentesque urna est nec elit. Vestibulum commodo sagittis metus, sed rhoncus ex vehicula quis. Cras hendrerit ante et porta sollicitudin. Donec varius orci vitae semper tristique. Proin aliquam ornare lacinia. Vivamus porta semper pharetra. Proin vitae nisl interdum, pellentesque felis ac, maximus ipsum. Morbi eget vulputate odio. Pellentesque euismod id metus at volutpat. Curabitur sit amet lobortis tortor.<\/p><p><\/p>",
+        "btn_title": "Read more",
+        "page": ""
+      }
+    },
+    "newsletter-signup": {
+      "type": "newsletter-signup",
+      "settings": {
+        "title": "Do you wanna be the first one to know about our new collection?",
+        "subtitle": "Subscribe to our newsletter and we will notify you",
+        "banner_image": "shopify:\/\/shop_images\/LBD_2817.jpg"
+      }
+    },
+    "blog-section": {
+      "type": "blog-section",
+      "settings": {
+        "title": "Get some insights",
+        "btn_title": "Read more"
+      }
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "banner_image": "shopify:\/\/shop_images\/Banners_for_shopify_theme_1.png",
+        "banner_link": "shopify:\/\/pages\/about-us"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "ef941c54-ed24-4e1b-8429-e44e2d4c2941": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rsz_2girl.jpg",
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+            "name_text": ""
+          }
+        },
+        "573de672-10f6-4489-9ce8-836c51d2199f": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/LBD_2840.jpg",
+            "text": "<p>Lorem ipsum dolor sit amet.<\/p>",
+            "name_text": "Olivia"
+          }
+        }
+      },
+      "block_order": [
+        "ef941c54-ed24-4e1b-8429-e44e2d4c2941",
+        "573de672-10f6-4489-9ce8-836c51d2199f"
+      ],
+      "settings": {
+        "title": "Client love",
+        "show_image": true
+      }
+    },
+    "FAQ": {
+      "type": "FAQ",
+      "blocks": {
+        "884268bb-475e-48d7-ab20-fdea7cf7254d": {
+          "type": "faq",
+          "settings": {
+            "title": "Ut enim ad minim veniam, qui ullamco?",
+            "answer": "<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        },
+        "4652af9c-41cd-4288-b40a-df37e870d1c1": {
+          "type": "faq",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+            "answer": "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        },
+        "61041174-110e-432c-910a-d9354cdd20b2": {
+          "type": "faq",
+          "settings": {
+            "title": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore?",
+            "answer": "<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "884268bb-475e-48d7-ab20-fdea7cf7254d",
+        "4652af9c-41cd-4288-b40a-df37e870d1c1",
+        "61041174-110e-432c-910a-d9354cdd20b2"
+      ],
+      "settings": {
+        "faq_title": "Frequenty asked questions",
+        "faq_img": "shopify:\/\/shop_images\/pexels-mohamed-abdelsadig-3356833.jpg"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured-collection",
+    "info-banner",
+    "main-collections",
+    "two-column",
+    "newsletter-signup",
+    "blog-section",
+    "banner",
+    "testimonials",
+    "FAQ"
+  ]
+}

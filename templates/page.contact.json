@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "blocks": {
+        "4caf5fff-eede-40fb-8ee9-bb4c06e3bc64": {
+          "type": "banner_parallex",
+          "settings": {
+            "banner_text_1": "If you have any questions",
+            "banner_text_2": "please do not hesitate to contact us",
+            "banner_image": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "4caf5fff-eede-40fb-8ee9-bb4c06e3bc64"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "template",
+    "contact-form"
+  ]
+}

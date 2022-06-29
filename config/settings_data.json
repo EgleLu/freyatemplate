@@ -1,0 +1,53 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/pexels-mohamed-abdelsadig-3356833.jpg",
+    "logo": "shopify:\/\/shop_images\/freya.webp",
+    "header_font_new": "amiri_n4",
+    "header_base_size": 47,
+    "body_font": "abel_n4",
+    "social_icon_1": "shopify:\/\/shop_images\/icons8-instagram-48.png",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
+            "settings": {
+              "text": "Welcome to our store",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{% if cart.item_count > 0 %}
+
+<div class="front">
+    <h1 class="text-3xl">Your cart</h1>
+    <a href="{{ routes.all_products_collectiom_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Continue shopping</a>
+</div>
+    <div class="p-4">
+
+
+        <div class="max-w-6xl flex flex-col my-10 mx-auto">
+            <form action="{{ routes.cart_url }}" method="POST" novalidate>
+                <table class="">
+                    <thead>
+                        <th class="">Product</th>
+                        <th>Name</th>
+                        <th class="">Quantity</th>
+                        <th class="">Total Price</th>
+                    <tbody>
+                        {% for item in cart.items %}
+                            <tr class="table-row">
+                                <td class="flex flex-col justify-center">
+                                    <a href="{{ item.url }}">
+                                        {% if item.image %}
+                                            <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}" class="w-20 h-20 object-cover border">
+                                        {% else %}
+                                            {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border' }}
+                                        {% endif %}
+                                    </a>
+                                </td>
+                                <td class="cart-td-in">
+                                    <a href="{{ item.url }}" >{{ item.product.title | truncatewords: 5}}</a><br>
+                                    <span class="text-sm">{{ item.variant.title }}</span>
+                              
+                                </td>
+                                <td class="py-4 px-2">
+                                    <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="w-20 border p-2">
+                                </td>
+                                <td class="py-4 px-2">
+                                    {{ item.line_price | money }}
+                                </td>
+                           <td>     <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-medium text-red-500 my-1">remove</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="my-2">
+                    <button type="submit" name="update" class="black-button">Update</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% else %}
+<div class="front">
+    <h1 class="">Your cart is empty</h1>
+    <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
+</div>
+
+{% endif %}
+
+{% schema %}
+{
+    "name": "Template Cart",
+    "blocks": [
+        {
+            "type": "subtotal",
+            "name": "Subtotal",
+            "limit": 1
+        },
+        {
+            "type": "update_button",
+            "name": "Update Button",
+            "limit": 1
+        },
+        {
+            "type": "checkout_button",
+            "name": "Checkout Button",
+            "limit": 1
+        }
+    ]
+}
+{% endschema %}

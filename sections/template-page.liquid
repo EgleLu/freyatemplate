@@ -1,0 +1,156 @@
+
+
+
+
+<div class="front">
+  <h1>{{ page.title }}</h1>
+</div>
+
+
+
+
+
+{% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'hero' %}
+    <div class="page-hero">
+
+      <div class="page-hero-content">
+  
+          <div class="page-hero-content-img">
+            <img src=" {{ block.settings.image | img_url : 'large'}}" alt=" {{ block.settings.image.alt}}">
+          </div>
+          <div class="page-hero-content-text">
+  
+              <h2>{{ block.settings.text_1 }}</h2>
+              <h1>{{ block.settings.text_2 }}</h1>
+              
+              {{ block.settings.main_text }}
+          </div>
+       
+  
+          </div>
+      
+      </div>
+
+      {% when 'content' %}
+
+      {% if block.settings.show_content %}
+      <div class="border-page-content">
+
+        <h2>{{ block.settings.content_title}}</h2>
+          {{ page.content }}
+        </div>
+      
+        {% endif %}
+
+        {% when 'banner_parallex' %}
+        <style>
+          .page-hero-background-2{
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url( "{{ block.settings.banner_image | img_url: 'large'   }}" );
+          }
+        </style>
+        <div class="page-hero-background-2 parralex text-center pd-tb-100">
+          <div class="text-inside-img">
+            <h2>{{ block.settings.banner_text_1 }}</h2>
+            <h1>{{block.settings.banner_text_2 }}</h1>
+          </div>
+        </div>
+
+
+  {% endcase %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Page content",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+
+  ],
+  "blocks": [
+     {
+      "name": "Hero",
+      "type": "hero",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+         "type": "text",
+         "id": "text_1",
+         "label": "Sub header text",
+         "default": "LET'S GET TO KNOW EACH OTHER"
+        },
+        {
+         "type": "text",
+         "id": "text_2",
+         "label": "Header text",
+         "default": "Hi, we're claashy"
+        },
+        {
+          "type": "richtext",
+          "id": "main_text",
+          "label": "Some about text",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo ab maxime commodi in, quo consectetur saepe eligendi autem non repellendus velit voluptatibus, architecto sint laudantium molestiae, ea provident eius laboriosam.</p>"
+        }
+      ]
+     },
+     {
+      "name": "Content",
+      "type": "content",
+      "settings": 
+      [
+        {
+          "type": "checkbox",
+          "id": "show_content",
+          "label": "Show content",
+          "default" : true,
+          "info" : "It's the connent you add to the page while creating a separate page"
+        },
+        {
+          "type": "text",
+          "id": "content_title",
+          "label": "Title",
+          "default": "Title about us"
+        }
+      ]
+     },
+
+     {
+       "name": "Banner with effect",
+       "type": "banner_parallex",
+       "limit": 1,
+       "settings": [
+       {
+        "type": "text",
+        "id": "banner_text_1",
+        "label": "Title one",
+        "default": "YOU DIDN'T COME THIS FAR"
+       },
+       {
+        "type": "text",
+        "id": "banner_text_2",
+        "label": "Title two",
+        "default": "to only come this far"
+       },
+       {
+        "type": "image_picker",
+        "id": "banner_image",
+        "label": "Background image of a banner"
+       }
+        
+      ]
+     }
+   
+       
+  ]
+}
+{% endschema %}

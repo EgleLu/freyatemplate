@@ -1,0 +1,38 @@
+<div class="favorites-grid-item collection-product">
+    {% if product_product.compare_at_price_max > product_product.price %}
+        <div class="sales-badge">
+            Sale!
+        </div>
+    {% endif %}
+    <a href="{{ product_product.url }}">
+        {% if product_product.featured_image %}
+            <img src="{{ product_product.featured_image | img_url: 'large' }}" alt="{{ product_product.featured_image.alt }}" class="img-h100">
+            <br>
+        {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'img-h100' }}
+        {% endif %}
+    </a>
+    <a class="collection-product-name">{{ product_product.title }}</a>
+
+
+        {% if product_product.compare_at_price_max > product_product.price %}
+            {% if product_product.price_varies %}
+            <h6 class="collection-product-price">{{ product_product.price_min | money }} - {{ product_product.price_max | money }} </h6>
+            {% else %}
+            <h6 class="collection-product-price">{{product_product.price | money }}     <span class="text-base text-gray-500 line-through">{{product_product.compare_at_price_max | money }}</span></h6>
+            {% endif %}
+           
+        {% else %}
+
+        {% if product_product.price_varies %}
+                <h6 class="collection-product-price">{{ product_product.price_min | money }} - {{ product_product.price_max | money }} </h6>
+        {% else %}
+            <h6 class="collection-product-price">{{ product_product.price | money }}</h6>
+        {% endif %}
+
+       
+        {% endif %}
+
+
+
+</div>

@@ -1,0 +1,94 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+
+<div class="product-template container">
+  <div class="product-images">
+
+    <div class="swiper-container-product-page swiper-container-{{- product.id -}}">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide">
+            <img src="{{ image.src | img_url: 'master'}}" alt="{{ image.alt | escape }}" />
+            <div class="swiper-button-next swiper-button-next-{{- product.id -}}"></div>
+            <div class="swiper-button-prev swiper-button-prev-{{- product.id -}}"></div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="product-description-container">
+    <div class="product-title">
+      <h1>{{ product.title }}</h1>
+    </div>
+
+      {% render 'add-to-cart-form' %}
+    </div>
+  </div>
+</div>
+
+{% for media in product.media %}
+{% case media.media_type %}
+  {% when 'video' %}
+    <div class="product-video">
+      {{ media | video_tag: controls: true, image_size:'1024x'  }}
+    </div>
+    {% when 'external_video' %}
+    <div class="product-video">
+    {{ media | external_video_tag: class: 'w-full h-80 object-cover' }}
+  </div>
+    {% when 'model' %}
+        {{ media | model_viewer_tag }}
+  {% endcase %}
+{% endfor %}
+
+
+
+<!-- {% for media in product.media %}
+
+  {% case media.media_type %}
+    {% when 'image' %}
+        <img src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}" class="w-full h-full object-cover">
+
+    {% when 'external_video' %}
+        {{ media | external_video_tag: class: 'w-full h-80 object-cover' }}
+
+    {% when 'video' %}
+    {{ media | video_tag: controls: true, image_size: "500x" }}
+
+    {% when 'model' %}
+        {{ media | model_viewer_tag }}
+
+    {% else %}
+        {{ media | media_tag }}
+        
+  {% endcase %}
+
+
+  {% endfor %} -->
+
+<script>
+  var swiper = new Swiper(".swiper-container-{{- product.id -}}", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    spaceBetween: 0,
+    loop: true,
+
+    breakpoints: {
+      600: {
+        allowTouchMove : false,
+        speed: 0,
+        navigation: {
+          nextEl: ".swiper-button-next-{{- product.id -}}",
+          prevEl: ".swiper-button-prev-{{- product.id -}}"
+        }
+      }
+    }
+  })
+
+</script>
+
+
+

@@ -1,0 +1,102 @@
+<!-- Swiper -->
+<!-- <link
+rel="stylesheet"
+href="https://unpkg.com/swiper/swiper-bundle.min.css"
+/> -->
+<div class="pd-tb-100">
+    <div class="swiper mySwiper " id="testimonials-box">
+        <div class="testimonials-title">
+            <h1 data-aos="fade-in"
+            data-aos-easing="ease-in"
+            data-aos-duration="1200">{{ section.settings.title}}</h1>
+        </div>
+    
+        <div class="swiper-wrapper">
+            
+            {% for block in section.blocks %}
+                <div class="swiper-slide testimonials" data-aos="fade-in"
+                data-aos-easing="ease-in"
+                data-aos-duration="1200">
+                    {% if section.settings.show_image %}
+                        <div class="testimonials-image">
+                            <img src="{{ block.settings.image | img_url: 'medium'}}" alt="{{ block.settings.image.alt }}">
+                        </div>
+                    {% endif %}
+    
+                    <div class="testimonials-text">
+                        {{ block.settings.text}}
+                    </div>
+                    <div class="testimonials-person">
+                        <h4>{{block.settings.name_text}}</h4>
+                    </div>
+    
+                </div>
+            {% endfor %}
+    
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+</div>
+
+
+  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true
+      },
+    });
+  </script>
+
+  {% schema %}
+  {
+     "name": "Testimonials",
+     "settings": [
+        {
+           "type": "text",
+           "id": "title",
+           "label": "title",
+           "default": "Customer's love"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_image",
+            "label": "Show image",
+            "default": true
+          }
+     ],
+     "blocks":[
+        {
+            "name" : "Slide",
+            "type": "slide",
+            "settings": [
+                {
+                   "type": "image_picker",
+                   "id" : "image",
+                   "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text body",
+                    "default" : "<p>It's a great shop I love it!</p>"
+                },
+                {
+                    "type": "text",
+                    "id": "name_text",
+                    "label": "Name"
+                }
+            ]
+        }
+     ],
+     "presets": [
+      {
+          "name": "Testimonials"
+      }
+  ]
+  }
+  {% endschema %}

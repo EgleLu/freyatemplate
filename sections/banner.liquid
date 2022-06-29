@@ -1,0 +1,37 @@
+<div class="banner">
+
+    {% if section.settings.banner_image  %}
+        
+   
+        <a href="{{section.settings.banner_link}}">
+            <img src="{{section.settings.banner_image | image_url }}" alt="{{section.settings.banner_image.alt }}" data-aos="fade-in"
+            data-aos-easing="ease-in"
+            data-aos-duration="1200">
+        </a>
+    {% else %}
+        <p>Upload the image</p>
+    {% endif %}
+</div>
+
+{% schema %}
+{
+   "name": "Banner",
+   "settings": [
+   {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Image of the banner"
+   },
+   {
+      "type": "url",
+      "id": "banner_link",
+      "label": "link to a specific collection/pruduct (anything)" 
+   }
+   ],
+   "presets": [
+        {
+            "name": "Banner"
+        }
+    ]
+}
+{% endschema %}

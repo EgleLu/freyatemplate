@@ -1,0 +1,223 @@
+
+<style>
+    .swiper-button-prev{
+      cursor: url(' {{ "cursor-arrow-left.svg" | asset_url }}') 15 8, auto;
+  }
+  .swiper-button-next{
+      cursor: url(' {{ "cursor-arrow-right.svg" | asset_url }}') 15 8, auto;
+  }
+  
+  .swiper-button-next::before{
+          background: url('{{ "cursor-arrow-right.svg" | asset_url }}') 24px center no-repeat;
+          content: "";
+          opacity: 0.25;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: opacity 0.15s;
+          background-position: calc(100% - 30px);
+      }
+      .swiper-button-prev::before{
+          background: url('{{ "cursor-arrow-left.svg" | asset_url }}') 24px center no-repeat;
+          content: "";
+          opacity: 0.25;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: opacity 0.15s;
+         
+      }
+  </style>
+  
+  <header class="header " id="header">
+
+      <div class="header-inner flex space-between">
+  
+            {% unless template == "product" %}
+              <button class="menu-button" @click="toggleMenu">
+           
+                  {% render 'icon-menu' %}
+               
+              </button>
+            {% else %}
+              <a href="javascript:history.back()" class="menu-button">
+                <span>Back</span>
+              </a>
+            {% endunless %}
+          
+              {% if settings.logo != blank %}
+              <a href="/"> <img src="{{settings.logo | image_url }}" alt="" class="logo"></a>
+              {% else %}
+              <a href="/" class="header-title">{{ shop.name }}</a>
+                
+              {% endif %}
+
+
+              <div class="header-right-side">
+                <button id="search" @click="showSearchBar" class="search">
+                  {% render 'icon-search' %}
+                </button>
+                <div class="cart-button-container" @click="toggleMiniCart">
+                  <button class="cart-button">
+                      <span >
+                        <template v-if="cart">
+                          {% render 'icon-shopping-cart'%}(${cart.item_count})
+                        </template>
+                        
+                      </span>
+                  </button>
+              </div>
+              </div>
+      </div>
+  
+      <div class="menu-drawer" :class="{ hidden: menuDrawer }">
+        <button class="menu-cart-close-button" @click="closeAllDrawers">Close</button>
+        {% render 'menu-drawer' %}
+      </div>
+  
+          <div class="mini-cart" :class="{ hidden : miniCart }">
+            <button class="mini-cart-close-button" @click="toggleMiniCart">Close</button>
+              {% render 'mini-cart' %}
+          </div>
+
+        
+
+          <div class="search-bar" :class="{hidden : searchBarV }" >
+  
+              <div class="flex justify-center pd-tb-50">
+                <div class="search-close-icon">
+                  <button class="close-icon-svg" @click="closeAllDrawers"> {% render 'icon-close' %}</button>
+                </div>
+                <form action="{{ routes.search_url}}" method="GET">
+                  <input type="search" name="q" placeholder="Type your search..." class="search-input">
+                  <button type="submit" class="search-button">Search</button>
+                </form>
+              </div>
+          </div>
+
+          <div class="outside" v-if="!miniCart || !menuDrawer || !searchBarV" @click="closeAllDrawers"></div>
+
+
+
+
+  
+  </header>
+  
+  <script>
+  
+  if (document.querySelector('#header'))
+  {
+    const headerCart = Vue.createApp({
+      delimiters: ['${','}'],
+      data(){
+        return{
+          cartData: store.state.cartState,
+
+        }
+      },
+      methods:{
+        showSearchBar(){
+          searchBar.openSearch();
+        },
+        handleScroll (event) {
+            var header = document.querySelector('#header')
+  
+          header.style.background = "rgb(0,0,0,0.4)";
+          header.style.position = "fixed";
+        
+          if( window.scrollY == 0){
+            header.style.background = "transparent";
+       
+            header.style.position = "sticky";
+          }
+         
+        },
+        toggleMiniCart(){
+          toggleMiniCart.openCart()
+        },
+        toggleMenu(){
+          toggleMenu.openMenu()
+        },
+        closeAllDrawers() {
+          toggleClose.closeAll();
+        },
+        decrement(item){
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity - 1
+          }
+  
+          axios.post('/cart/change.js', data)
+          .then(response => {
+            store.getCart()
+   
+          })
+          .catch(error => console.log(error))
+        },
+  
+        incremenet(item){
+   
+          const data = {
+            "id": item.key,
+            "quantity": item.quantity + 1
+          }
+  
+          axios.post('/cart/change.js', data)
+          .then(response => {
+            store.getCart()
+          })
+          .catch(error => console.log(error))
+        },
+
+        remove(item){
+          const data = {
+            "id": item.key,
+            "quantity": 0
+          }
+  
+          axios.post('/cart/change.js', data)
+          .then(response => {
+            store.getCart()
+          })
+          .catch(error => console.log(error))
+        },
+  
+        money(value){
+          if(!value) return 0
+          return (value/100).toFixed(2)
+        }
+  
+      },
+      computed: {
+        miniCart() {
+          return miniCartState.hidden
+        },
+        menuDrawer() {
+          return menuState.hidden
+        },
+
+        cart() { 
+          // The update cart -> PROXY
+          // console.log(this.cartData[0])
+          return this.cartData[0]
+        },
+        searchBarV(){
+
+          return searchState.hidden
+        }
+      },
+      // calls the function whenever component  is created, so whenever the header loads it's triggered
+      created() {
+        store.getCart();
+        window.addEventListener('scroll', this.handleScroll);
+
+      }
+    }).mount('#header')
+  }
+
+  
+  </script>

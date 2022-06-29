@@ -1,0 +1,45 @@
+<style>
+  .newsletter-background{
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url( "{{ section.settings.banner_image | img_url: 'large'   }}" );
+  }
+</style>
+
+<div class="newsletter-background parralex text-center pd-tb-100">
+  <h1>{{ section.settings.title }}</h1>
+  <h2>{{ section.settings.subtitle}}</h2>
+  <div class="text-inside-img">
+
+   {% render 'email-form' %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Newsletter signup",
+  "settings" : [
+    {
+     "type": "text",
+     "id": "title",
+     "label": "Title",
+     "default": "Do you wanna be the first one to know about our new collection?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Subscribe to our newsletter and we will notify you"
+     },
+     {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Background image of a banner"
+     }
+  ],
+  "presets": [
+        {
+            "name": "Newsletter signup"
+        }
+    ]
+}
+{% endschema %}

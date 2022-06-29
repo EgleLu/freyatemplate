@@ -1,0 +1,66 @@
+<!-- {% for article in blogs.news.articles limit:3 %}
+    <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+   {{ article.excerpt_or_content }}
+​{% endfor %} -->
+
+<section class="index-blog-section">
+    <h3>{{ section.settings.title }}</h3>
+    <div class="blog-section-main">
+        <div class="grid">
+            {% for article in blogs.news.articles limit:3 %}
+                <div class="">
+                    <div class="article" data-aos="fade-in"
+                    data-aos-easing="ease-in"
+                    data-aos-duration="1200">
+                        {% if article.image %}
+                            <a href="{{ article.url }}" class="article-img">
+                                <img class="" src="{{ article.image | img_url: 'medium' }}" alt="{{ article.image.alt }}">
+                            </a>
+                        {% else %}
+                            {{ 'image' | placeholder_svg_tag: '' }}
+                        {% endif %}
+    
+                        <div class="p-4">
+                            <h1 class="text-xl ">{{ article.title }}</h1>
+    
+                            {% if article.excerpt.size > 0 %}
+                                <p>{{ article.excerpt | strip_html | truncatewords: 30 }}</p>
+                            {% else %}
+                                <p>{{ article.content | strip_html | truncatewords: 30 }}</p>
+                            {% endif %}
+    
+                            <a href="{{ article.url }}" class="btn-left">{{ section.settings.btn_title }}</a>
+                        </div>
+    
+                        
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Blog section",
+    "settings": [
+
+    {
+        "type": "text",
+        "id": "title",
+        "label": "Title of blog",
+        "default": "Get some insights"
+    },
+
+            {
+                "type": "text",
+                "id": "btn_title",
+                "label": "Title of the button",
+                "default": "Read more"
+            }
+
+    ]
+}
+
+{% endschema %}

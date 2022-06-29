@@ -1,0 +1,99 @@
+<div id="faq">
+    <h1>{{ section.settings.faq_title }}</h1>
+    <div class="flex justify-center">
+        <div class="faq-image" >
+            {% if section.settings.faq_img %}
+                <img src="{{ section.settings.faq_img | img_url : 'large'}}" alt=" {{ section.settings.faq_img}}" data-aos="fade-in"
+                data-aos-easing="ease-in"
+                data-aos-duration="1200">
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: '' }}
+            {% endif %}
+            </div>
+            <div class="faq-questions">
+                {% for block in section.blocks %}
+          
+                <a href="#content-{{block.id}}" class="accordion-toggle">{{ block.settings.title}}</a>
+                <div class="accordion-content" id="content-{{block.id}}">
+                    {{ block.settings.answer}}
+                </div>   
+                {% endfor %}
+        
+            </div>
+    </div>
+</div>
+
+
+
+
+<script>
+        document.addEventListener('click', function (event) {
+
+    if (!event.target.classList.contains('accordion-toggle')) return;
+
+    var content = document.querySelector(event.target.hash);
+    if (!content) return;
+    
+    event.preventDefault();
+
+    if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        return;
+    }
+    
+    var accordions = document.querySelectorAll('.accordion-content.active');
+    for (var i = 0; i < accordions.length; i++) {
+        accordions[i].classList.remove('active');
+    }
+    
+
+    content.classList.toggle('active');
+})
+
+</script>
+
+{% schema %}
+{
+   "name": "FAQ",
+   "settings": [
+    {
+        "type": "text",
+        "id": "faq_title",
+        "label": "FAQ title",
+        "default": "Frequenty asked questions"
+    },
+   {
+      "type": "image_picker",
+      "id": "faq_img",
+      "label": "FAQ image"
+   }
+   
+],
+   "blocks":[
+   {
+       "name" : "faq",
+       "type": "faq",
+       "settings": [
+
+           {
+               "type": "text",
+               "id": "title",
+               "label": "Name"
+           },
+
+           {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Text body",
+            "default" : "<p>It's a great shop I love it!</p>"
+        }
+       ]
+   }    
+],
+"presets": [
+        {
+            "name": "FAQ"
+        }
+    ]
+}
+{% endschema %}

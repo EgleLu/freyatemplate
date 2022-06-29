@@ -1,0 +1,139 @@
+<style>
+    .small-box-1{
+       background-image: url( "{{ section.settings.image_1  | img_url: 'large'   }}");
+    }
+      .small-box-2{
+         background-image: url( "{{ section.settings.image_2  | img_url: 'large'   }}");
+   } 
+   .small-box-3{
+      background-image: url( "{{ section.settings.image_3  | img_url: 'large'   }}");
+   }
+   .sidebar{
+      background-image: url( "{{ section.settings.image_4  | img_url: 'large'   }}");
+      }
+</style>
+<section class="shop-collection">
+           
+    <h2 class="title">Shop the collection</h2>
+
+   <div class="home-collection">
+      <div class="grid-collection">
+         <div class="small-box-1 collection-item-bg"
+         data-aos="fade-in"
+    data-aos-duration="1000"
+         > 
+         <a href="{{ section.settings.collection_1.url }}">
+            <div class="flex grid-collection-item">
+
+                  <div class="collection-btn">
+                     <button>
+                        {{ section.settings.collection_1.title }}
+                     </button>
+                  </div>
+
+            </div>
+         </a>
+          </div>
+         <div class="small-box-2 collection-item-bg"
+         data-aos="fade-in"
+         data-aos-duration="1600">
+            <a href="{{ section.settings.collection_2.url }}">
+               <div class="flex grid-collection-item">
+                     <div class="collection-btn">
+                        <button>
+                           {{ section.settings.collection_2.title }}
+                        </button>
+                     </div>
+               </div>
+            </a>
+         </div>
+
+         <div class="small-box-3 collection-item-bg"
+         data-aos="fade-in"
+         data-aos-duration="1800">
+         <a href="{{ section.settings.collection_3.url }}">
+            <div class="flex grid-collection-item">
+
+                  <div class="collection-btn">
+                     <button>
+                        {{ section.settings.collection_3.title }}
+                     </button>
+                  </div>
+
+            </div>
+         </a>
+         </div>
+
+         <div class="sidebar collection-item-bg"
+         data-aos="fade-in"
+         data-aos-duration="1400">
+            <a href="{{ section.settings.collection_4.url }}">
+            <div class="flex grid-collection-item">
+           
+                  <div class="collection-btn">
+                     <button>
+                        {{ section.settings.collection_4.title }}
+                     </button>
+                  </div>
+       
+            </div>
+         </a>
+         </div>
+
+       </div>
+   </div>
+
+</section>
+
+{% schema %}
+{
+    "name": "Main collections",
+   "settings": [
+   {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+       {
+          "type": "collection",
+          "id" : "collection_1",
+          "label": "First collection"
+       },
+       {
+         "type": "image_picker",
+         "id": "image_2",
+         "label": "Image 2"
+       },
+       {
+        "type": "collection",
+        "id" : "collection_2",
+        "label": "Second collection"
+     },
+     {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+     {
+        "type": "collection",
+        "id" : "collection_3",
+        "label": "Third collection"
+     },
+
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "collection",
+      "id" : "collection_4",
+      "label": "Fourth collection"
+   }
+   ],
+   "presets": [
+   {
+       "name": "main-collections"
+   }]
+}
+{% endschema %}

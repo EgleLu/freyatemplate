@@ -1,0 +1,45 @@
+
+<div class="front collection">
+    <a href="{{ routes.collections_url }}" class="text-base text-gray-500 hover:underline text-center block my-4">Go back to collections</a>
+<h1 class="collection-name-title">{{ collection.title }}</h1>
+<h6 class="collection-name-description">{{ collection.description }}</h1>
+</div>
+
+
+<div class="filters-box flex">
+    {% render 'collection-filters' %}
+    {% render 'collection-sort' %}
+</div>
+<div class="">
+   
+    {% paginate collection.products by section.settings.number_of_products_per_page %}
+
+
+        <div class="template-collections">
+            <div class="grid">
+                {% for product in collection.products %}
+                    {% render 'product-card', product_product: product %}
+                {% else %}
+                    <p>There are no products inside of this collection</p>
+                {% endfor %}
+            </div>
+        </div>
+        
+
+        {% render 'pagination', pagination: paginate %}
+    {% endpaginate %}
+</div>
+
+{% schema %}
+{
+    "name": "Template Collection",
+    "settings": [
+        {
+            "type": "number",
+            "id": "number_of_products_per_page",
+            "default": 6,
+            "label": "Number of products per page"
+        }
+    ]
+}
+{% endschema %}
